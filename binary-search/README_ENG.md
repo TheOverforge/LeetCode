@@ -1,137 +1,195 @@
 # Binary Search
 
-## What it is
-
-**Binary Search** is an algorithm for finding an element in a **sorted array**.  
-It works faster than a regular search because at each step it **discards half of the array**.
+A clean and easy-to-follow explanation of the binary search algorithm based on a LeetCode-style solution.
 
 ---
 
-## Main condition
+## What is Binary Search?
 
-Binary search works **only with sorted data**.
+**Binary Search** is an algorithm used to find an element in a **sorted array**.
 
-Example of a valid array:
+Instead of checking elements one by one, it repeatedly looks at the **middle of the current range** and removes the half where the target definitely cannot be.
 
-[1, 3, 5, 7, 9]
-
----
-
-## Algorithm idea
-
-At each step, the algorithm:
-
-1. Takes the left boundary.
-2. Takes the right boundary.
-3. Finds the middle.
-4. Compares the middle value with the target number.
-5. If found, returns the index.
-6. If the target is smaller, continues searching in the left part.
-7. If the target is greater, continues searching in the right part.
+That is why it is much faster than a normal linear search.
 
 ---
 
-## Important to understand
+## Main Requirement
 
-Binary search divides **not the values themselves**, but the **range of indices**.
-
-That means:
-
-- `low` — left index
-- `high` — right index
-- `mid = (low + high) // 2` — middle index
-- `guess = list[mid]` — value at that index
-
----
-
-## Example
-
-Array:
-
-index:   0  1  2  3  4  
-value:   1  3  5  7  9
-
-We are looking for `3`.
-
-### Step 1
-- `low = 0`
-- `high = 4`
-- `mid = (0 + 4) // 2 = 2`
-- `guess = list[2] = 5`
-
-`3 < 5`, so we search in the left part.
-
-### Step 2
-- `low = 0`
-- `high = 1`
-- `mid = (0 + 1) // 2 = 0`
-- `guess = list[0] = 1`
-
-`3 > 1`, so we search in the right part.
-
-### Step 3
-- `low = 1`
-- `high = 1`
-- `mid = (1 + 1) // 2 = 1`
-- `guess = list[1] = 3`
-
-The element is found. The answer is index `1`.
-
----
-
-## Python code
-
-```python
-def binary_search(lst, item):
-    low = 0
-    high = len(lst) - 1
-
-    while low <= high:
-        mid = (low + high) // 2
-        guess = lst[mid]
-
-        if guess == item:
-            return mid
-
-        if guess > item:
-            high = mid - 1
-        else:
-            low = mid + 1
-
-    return None
-
-
-my_list = [1, 3, 5, 7, 9]
-
-print(binary_search(my_list, 3))   # 1
-print(binary_search(my_list, -1))  # None
-```
-
-Why it is fast
-
-A regular search checks elements one by one.
-Binary search cuts the search area in half each time.
+Binary search works only if the array is **sorted in ascending order**.
 
 Example:
 
-100 elements → about 7 steps maximum
-1,000 elements → about 10 steps maximum
-1,000,000,000 elements → about 30 steps maximum
-Complexity
+```text
+[-1, 0, 3, 5, 9, 12]
+```
 
-Time complexity: O(log n)
+---
 
-This means that as the array size grows, the number of operations grows slowly.
+## Core Idea
 
-Binary search is much faster than linear search O(n) on large datasets.
+We keep two search boundaries:
 
-What to remember
-the array must be sorted
-the search works with indices
-the algorithm compares the value in the middle of the array
-if the element is smaller than the middle value, go left
-if it is greater, go right
-if it is equal, return the index
-Conclusion
+- `low` — left boundary
+- `high` — right boundary
 
-Binary search is a basic and very important algorithm that shows how search can be accelerated with the right strategy: instead of checking everything one by one, it discards half of the data at each step.
+On each step:
+
+1. Find the middle index
+2. Compare the middle value with `target`
+3. If they are equal — return the index
+4. If the middle value is greater — move left
+5. If the middle value is smaller — move right
+
+---
+
+## Python Code (LeetCode Format)
+
+```python
+class Solution:
+    def search(self, nums, target):
+        low = 0
+        high = len(nums) - 1
+
+        while low <= high:
+            mid = (low + high) // 2
+            guess = nums[mid]
+
+            if guess == target:
+                return mid
+
+            if guess > target:
+                high = mid - 1
+            else:
+                low = mid + 1
+
+        return -1
+```
+
+---
+
+## Code Breakdown
+
+### `low = 0`
+The left boundary starts at the first index of the array.
+
+### `high = len(nums) - 1`
+The right boundary starts at the last valid index.
+
+### `while low <= high`
+As long as the search range still exists, we continue searching.
+
+### `mid = (low + high) // 2`
+We calculate the middle index of the current range.
+
+### `guess = nums[mid]`
+We take the value at index `mid`.
+
+### `if guess == target`
+If we found the target, we return its index immediately.
+
+### `if guess > target`
+If the middle value is greater than `target`, then the target can only be in the **left half**.
+
+So we do:
+
+```python
+high = mid - 1
+```
+
+### `else`
+If the middle value is smaller than `target`, then the target can only be in the **right half**.
+
+So we do:
+
+```python
+low = mid + 1
+```
+
+### `return -1`
+If the loop ends and the element was not found, we return `-1`.
+
+That is exactly what LeetCode 704 requires.
+
+---
+
+## Example Walkthrough
+
+Array:
+
+```text
+[-1, 0, 3, 5, 9, 12]
+```
+
+Target:
+
+```text
+9
+```
+
+### Step 1
+- `low = 0`
+- `high = 5`
+- `mid = (0 + 5) // 2 = 2`
+- `guess = nums[2] = 3`
+
+`9 > 3`, so we move right.
+
+### Step 2
+- `low = 3`
+- `high = 5`
+- `mid = (3 + 5) // 2 = 4`
+- `guess = nums[4] = 9`
+
+Element found.
+
+Answer: `4`
+
+---
+
+## Why is it Fast?
+
+A normal search checks elements one by one.
+
+Binary search **cuts the search range in half** every step.
+
+Examples:
+
+- `100` elements → about `7` steps
+- `1,000` elements → about `10` steps
+- `1,000,000` elements → about `20` steps
+- `1,000,000,000` elements → about `30` steps
+
+---
+
+## Complexity
+
+**Time Complexity:** `O(log n)`
+
+This means that even when the array grows a lot, the number of operations increases very slowly.
+
+Binary search is much faster than linear search `O(n)` on large sorted data.
+
+---
+
+## What You Should Remember
+
+- the array must be **sorted**
+- the search is done using **indexes**
+- each step checks the **middle of the range**
+- if `target` is smaller, go left
+- if `target` is greater, go right
+- if found, return the index
+- if not found, return `-1`
+
+---
+
+## Conclusion
+
+Binary Search is one of the most important basic algorithms.
+
+It teaches a simple but powerful idea:
+
+> Do not check everything if you can immediately eliminate half of the wrong options.
+
+That is what makes the algorithm fast, elegant, and extremely useful in programming problems.

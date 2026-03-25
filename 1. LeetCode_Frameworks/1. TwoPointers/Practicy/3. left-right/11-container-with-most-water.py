@@ -1,17 +1,17 @@
 class Solution(object):
     def maxArea(self, height):
-        left = 0
-        right = len(height) - 1
-        best = 0
+        left = 0                               # left pointer
+        right = len(height) - 1                # right pointer
+        best = 0                               # best area found so far
 
-        while left < right:
-            width = right - left
-            area = min(height[left], height[right]) * width
-            best = max(best, area)
+        while left < right:                    # keep shrinking the range
+            width = right - left               # container width
+            area = min(height[left], height[right]) * width  # current area
+            best = max(best, area)             # update best answer
 
-            if height[left] < height[right]:
-                left += 1
-            else:
-                right -= 1
+            if height[left] < height[right]:   # shorter wall is on the left
+                left += 1                      # move left pointer
+            else:                              # shorter wall is on the right
+                right -= 1                     # move right pointer
 
-        return best
+        return best                            # maximum area

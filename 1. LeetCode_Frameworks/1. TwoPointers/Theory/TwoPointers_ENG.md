@@ -52,16 +52,18 @@ Two Pointers often appears when:
 
 ## 4. Main recognition flow
 
-    Two Pointers
+```text
+Two Pointers
+│
+├── Is there more than one sequence?
+│   └── Yes → one pointer for each
+│
+└── Only one sequence
+    ├── Do we need in-place modification?
+    │   └── Yes → fast & slow
     │
-    ├── Is there more than one sequence?
-    │   └── Yes → one pointer for each
-    │
-    └── Only one sequence
-        ├── Do we need in-place modification?
-        │   └── Yes → fast & slow
-        │
-        └── Otherwise → left & right
+    └── Otherwise → left & right
+```
 
 ### Questions to ask yourself
 

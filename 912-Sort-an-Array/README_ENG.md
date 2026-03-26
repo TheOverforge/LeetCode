@@ -1,3 +1,12 @@
+<div align="center">
+
+![Topic](https://img.shields.io/badge/Algorithm-Merge_Sort-7c3aed?style=for-the-badge&logoColor=white)
+
+![Language](https://img.shields.io/badge/Python-3b1f6e?style=flat-square&logo=python&logoColor=white)
+![Problem](https://img.shields.io/badge/LeetCode_912-7c3aed?style=flat-square&logoColor=white)
+
+</div>
+
 # 912. Sort an Array
 
 Documentation for LeetCode 912 with explanations for the two Python solutions in this folder:

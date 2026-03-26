@@ -1,3 +1,12 @@
+<div align="center">
+
+![Topic](https://img.shields.io/badge/Алгоритм-Binary_Search-7c3aed?style=for-the-badge&logoColor=white)
+
+![Language](https://img.shields.io/badge/Python-3b1f6e?style=flat-square&logo=python&logoColor=white)
+![Problem](https://img.shields.io/badge/LeetCode_704-7c3aed?style=flat-square&logoColor=white)
+
+</div>
+
 # Binary Search
 
 Чистое и понятное объяснение алгоритма бинарного поиска на основе решения в формате LeetCode.

@@ -1,3 +1,11 @@
+<div align="center">
+
+![Framework](https://img.shields.io/badge/Framework_1-Two_Pointers-7c3aed?style=for-the-badge&logoColor=white)
+![Language](https://img.shields.io/badge/Python-3b1f6e?style=flat-square&logo=python&logoColor=white)
+![Difficulty](https://img.shields.io/badge/Patterns-3-7c3aed?style=flat-square&logoColor=white)
+
+</div>
+
 # Two Pointers Framework
 
 ## 1. Where it fits in the bigger picture
@@ -85,24 +93,26 @@ If there are **two sequences**, a common move is to place **one pointer on each*
 
 #### Example
 
-    from typing import List
+```python
+from typing import List
 
-    def intersect(nums1: List[int], nums2: List[int]) -> List[int]:
-        p1 = 0
-        p2 = 0
-        result = []
+def intersect(nums1: List[int], nums2: List[int]) -> List[int]:
+    p1 = 0
+    p2 = 0
+    result = []
 
-        while p1 < len(nums1) and p2 < len(nums2):
-            if nums1[p1] < nums2[p2]:
-                p1 += 1
-            elif nums1[p1] > nums2[p2]:
-                p2 += 1
-            else:
-                result.append(nums1[p1])
-                p1 += 1
-                p2 += 1
+    while p1 < len(nums1) and p2 < len(nums2):
+        if nums1[p1] < nums2[p2]:
+            p1 += 1
+        elif nums1[p1] > nums2[p2]:
+            p2 += 1
+        else:
+            result.append(nums1[p1])
+            p1 += 1
+            p2 += 1
 
-        return result
+    return result
+```
 
 #### Complexity
 
@@ -140,17 +150,19 @@ Whenever it finds a useful element, that element is moved to position `slow`, an
 
 #### Example
 
-    from typing import List
+```python
+from typing import List
 
-    def move_zeroes(nums: List[int]) -> List[int]:
-        slow = 0
+def move_zeroes(nums: List[int]) -> List[int]:
+    slow = 0
 
-        for fast in range(len(nums)):
-            if nums[fast] != 0:
-                nums[slow], nums[fast] = nums[fast], nums[slow]
-                slow += 1
+    for fast in range(len(nums)):
+        if nums[fast] != 0:
+            nums[slow], nums[fast] = nums[fast], nums[slow]
+            slow += 1
 
-        return nums
+    return nums
+```
 
 #### Complexity
 
@@ -192,23 +204,25 @@ and gradually **shrink the search range**.
 
 #### Example
 
-    from typing import List
+```python
+from typing import List
 
-    def two_sum(nums: List[int], target: int) -> List[int]:
-        left = 0
-        right = len(nums) - 1
+def two_sum(nums: List[int], target: int) -> List[int]:
+    left = 0
+    right = len(nums) - 1
 
-        while left < right:
-            current_sum = nums[left] + nums[right]
+    while left < right:
+        current_sum = nums[left] + nums[right]
 
-            if current_sum == target:
-                return [left, right]
-            elif current_sum > target:
-                right -= 1
-            else:
-                left += 1
+        if current_sum == target:
+            return [left, right]
+        elif current_sum > target:
+            right -= 1
+        else:
+            left += 1
 
-        return [-1, -1]
+    return [-1, -1]
+```
 
 #### Complexity
 
@@ -321,40 +335,46 @@ Useful prerequisites:
 
 ### One pointer for each sequence
 
-    p1 = 0
-    p2 = 0
+```python
+p1 = 0
+p2 = 0
 
-    while p1 < len(a) and p2 < len(b):
-        if a[p1] < b[p2]:
-            p1 += 1
-        elif a[p1] > b[p2]:
-            p2 += 1
-        else:
-            # handle match
-            p1 += 1
-            p2 += 1
+while p1 < len(a) and p2 < len(b):
+    if a[p1] < b[p2]:
+        p1 += 1
+    elif a[p1] > b[p2]:
+        p2 += 1
+    else:
+        # handle match
+        p1 += 1
+        p2 += 1
+```
 
 ### Fast and Slow
 
-    slow = 0
+```python
+slow = 0
 
-    for fast in range(len(nums)):
-        if condition(nums[fast]):
-            nums[slow] = nums[fast]
-            slow += 1
+for fast in range(len(nums)):
+    if condition(nums[fast]):
+        nums[slow] = nums[fast]
+        slow += 1
+```
 
 ### Left / Right
 
-    left = 0
-    right = len(nums) - 1
+```python
+left = 0
+right = len(nums) - 1
 
-    while left < right:
-        if condition_met:
-            return answer
-        elif need_move_left:
-            left += 1
-        else:
-            right -= 1
+while left < right:
+    if condition_met:
+        return answer
+    elif need_move_left:
+        left += 1
+    else:
+        right -= 1
+```
 
 ---
 

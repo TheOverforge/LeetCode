@@ -1,3 +1,11 @@
+<div align="center">
+
+![Framework](https://img.shields.io/badge/Фреймворк_1-Two_Pointers-7c3aed?style=for-the-badge&logoColor=white)
+![Language](https://img.shields.io/badge/Python-3b1f6e?style=flat-square&logo=python&logoColor=white)
+![Difficulty](https://img.shields.io/badge/Паттерны-3-7c3aed?style=flat-square&logoColor=white)
+
+</div>
+
 # Фреймворк Two Pointers
 
 ## 1. Где это находится в общей картине
@@ -85,24 +93,26 @@ Two Pointers часто появляется, когда:
 
 #### Пример
 
-    from typing import List
+```python
+from typing import List
 
-    def intersect(nums1: List[int], nums2: List[int]) -> List[int]:
-        p1 = 0
-        p2 = 0
-        result = []
+def intersect(nums1: List[int], nums2: List[int]) -> List[int]:
+    p1 = 0
+    p2 = 0
+    result = []
 
-        while p1 < len(nums1) and p2 < len(nums2):
-            if nums1[p1] < nums2[p2]:
-                p1 += 1
-            elif nums1[p1] > nums2[p2]:
-                p2 += 1
-            else:
-                result.append(nums1[p1])
-                p1 += 1
-                p2 += 1
+    while p1 < len(nums1) and p2 < len(nums2):
+        if nums1[p1] < nums2[p2]:
+            p1 += 1
+        elif nums1[p1] > nums2[p2]:
+            p2 += 1
+        else:
+            result.append(nums1[p1])
+            p1 += 1
+            p2 += 1
 
-        return result
+    return result
+```
 
 #### Сложность
 
@@ -140,17 +150,19 @@ Two Pointers часто появляется, когда:
 
 #### Пример
 
-    from typing import List
+```python
+from typing import List
 
-    def move_zeroes(nums: List[int]) -> List[int]:
-        slow = 0
+def move_zeroes(nums: List[int]) -> List[int]:
+    slow = 0
 
-        for fast in range(len(nums)):
-            if nums[fast] != 0:
-                nums[slow], nums[fast] = nums[fast], nums[slow]
-                slow += 1
+    for fast in range(len(nums)):
+        if nums[fast] != 0:
+            nums[slow], nums[fast] = nums[fast], nums[slow]
+            slow += 1
 
-        return nums
+    return nums
+```
 
 #### Сложность
 
@@ -192,23 +204,25 @@ Two Pointers часто появляется, когда:
 
 #### Пример
 
-    from typing import List
+```python
+from typing import List
 
-    def two_sum(nums: List[int], target: int) -> List[int]:
-        left = 0
-        right = len(nums) - 1
+def two_sum(nums: List[int], target: int) -> List[int]:
+    left = 0
+    right = len(nums) - 1
 
-        while left < right:
-            current_sum = nums[left] + nums[right]
+    while left < right:
+        current_sum = nums[left] + nums[right]
 
-            if current_sum == target:
-                return [left, right]
-            elif current_sum > target:
-                right -= 1
-            else:
-                left += 1
+        if current_sum == target:
+            return [left, right]
+        elif current_sum > target:
+            right -= 1
+        else:
+            left += 1
 
-        return [-1, -1]
+    return [-1, -1]
+```
 
 #### Сложность
 
@@ -321,40 +335,46 @@ Two Pointers часто нужен для:
 
 ### Один указатель на каждую последовательность
 
-    p1 = 0
-    p2 = 0
+```python
+p1 = 0
+p2 = 0
 
-    while p1 < len(a) and p2 < len(b):
-        if a[p1] < b[p2]:
-            p1 += 1
-        elif a[p1] > b[p2]:
-            p2 += 1
-        else:
-            # обработка совпадения
-            p1 += 1
-            p2 += 1
+while p1 < len(a) and p2 < len(b):
+    if a[p1] < b[p2]:
+        p1 += 1
+    elif a[p1] > b[p2]:
+        p2 += 1
+    else:
+        # обработка совпадения
+        p1 += 1
+        p2 += 1
+```
 
 ### Fast and Slow
 
-    slow = 0
+```python
+slow = 0
 
-    for fast in range(len(nums)):
-        if condition(nums[fast]):
-            nums[slow] = nums[fast]
-            slow += 1
+for fast in range(len(nums)):
+    if condition(nums[fast]):
+        nums[slow] = nums[fast]
+        slow += 1
+```
 
 ### Left / Right
 
-    left = 0
-    right = len(nums) - 1
+```python
+left = 0
+right = len(nums) - 1
 
-    while left < right:
-        if condition_met:
-            return answer
-        elif need_move_left:
-            left += 1
-        else:
-            right -= 1
+while left < right:
+    if condition_met:
+        return answer
+    elif need_move_left:
+        left += 1
+    else:
+        right -= 1
+```
 
 ---
 
@@ -386,19 +406,19 @@ Two Pointers часто нужен для:
 
 ## 12. Что решать для закрепления
 
-### Fast and Slow
+### Fast and Slow (быстрый и медленный)
 
 - Move Zeroes
 - Remove Duplicates from Sorted Array
 - Remove Element
 
-### One pointer for each
+### Один указатель на каждую последовательность
 
 - Intersection of Two Sorted Arrays
 - Merge Sorted Array
 - Compare Strings with Backspaces
 
-### Left / Right
+### Left / Right (с двух концов)
 
 - Two Sum II
 - Valid Palindrome

@@ -20,7 +20,7 @@ Structured approach to algorithms — frameworks first, problems second.
 | # | Framework | Status | Problems |
 |---|-----------|--------|----------|
 | 1 | [Two Pointers](./1.%20LeetCode_Frameworks/1.%20TwoPointers/) | ✅ Done | 26, 88, 11, 141 |
-| 2 | Sliding Window | 🔄 In Progress | — |
+| 2 | [Sliding Window](./1.%20LeetCode_Frameworks/2.%20Sliding_Window/) | 🔄 In Progress | 643, 3, 438, 239 |
 
 ---
 
@@ -34,6 +34,10 @@ Structured approach to algorithms — frameworks first, problems second.
 | 141 | Linked List Cycle | Fast & Slow | [→](./1.%20LeetCode_Frameworks/1.%20TwoPointers/Practice/4.%20linked-list/141-linked-list-cycle.py) |
 | 704 | Binary Search | Binary Search | [→](./binary-search/binary-search.py) |
 | 912 | Sort an Array | Merge Sort | [→](./912-Sort-an-Array/) |
+| 3 | Longest Substring Without Repeating Characters | Variable-size Window | [→](./1.%20LeetCode_Frameworks/2.%20Sliding_Window/Practice/2.%20overlapping/3-longest-substring-without-repeating-characters.py) |
+| 239 | Sliding Window Maximum | Advanced | [→](./1.%20LeetCode_Frameworks/2.%20Sliding_Window/Practice/4.%20advanced/239-sliding-window-maximum.py) |
+| 438 | Find All Anagrams in a String | Fixed-size String | [→](./1.%20LeetCode_Frameworks/2.%20Sliding_Window/Practice/3.%20fixed-size-string/438-find-all-anagrams-in-a-string.py) |
+| 643 | Maximum Average Subarray I | Fixed-size Window | [→](./1.%20LeetCode_Frameworks/2.%20Sliding_Window/Practice/1.%20fixed-size/643-maximum-average-subarray-i.py) |
 
 ---
 

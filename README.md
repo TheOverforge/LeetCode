@@ -20,7 +20,7 @@ Structured approach to algorithms — frameworks first, problems second.
 | # | Framework | Status | Problems |
 |---|-----------|--------|----------|
 | 1 | [Two Pointers](./1.%20LeetCode_Frameworks/1.%20TwoPointers/) | ✅ Done | 26, 88, 11, 141 |
-| 2 | [Sliding Window](./1.%20LeetCode_Frameworks/2.%20Sliding_Window/) | 🔄 In Progress | 643, 3, 438, 239 |
+| 2 | [Sliding Window](./1.%20LeetCode_Frameworks/2.%20Sliding_Window/) | 🔄 In Progress | 643, 1343, 3, 209, 438, 567, 239, 862 |
 
 ---
 
@@ -38,6 +38,10 @@ Structured approach to algorithms — frameworks first, problems second.
 | 239 | Sliding Window Maximum | Advanced | [→](./1.%20LeetCode_Frameworks/2.%20Sliding_Window/Practice/4.%20advanced/239-sliding-window-maximum.py) |
 | 438 | Find All Anagrams in a String | Fixed-size String | [→](./1.%20LeetCode_Frameworks/2.%20Sliding_Window/Practice/3.%20fixed-size-string/438-find-all-anagrams-in-a-string.py) |
 | 643 | Maximum Average Subarray I | Fixed-size Window | [→](./1.%20LeetCode_Frameworks/2.%20Sliding_Window/Practice/1.%20fixed-size/643-maximum-average-subarray-i.py) |
+| 1343 | Number of Sub-arrays of Size K and Average ≥ Threshold | Fixed-size Window | [→](./1.%20LeetCode_Frameworks/2.%20Sliding_Window/Practice/1.%20fixed-size/1343-number-of-sub-arrays-of-size-k-and-average-greater-than-or-equal-to-threshold.py) |
+| 209 | Minimum Size Subarray Sum | Variable-size Window | [→](./1.%20LeetCode_Frameworks/2.%20Sliding_Window/Practice/2.%20overlapping/209-minimum-size-subarray-sum.py) |
+| 567 | Permutation in String | Fixed-size String | [→](./1.%20LeetCode_Frameworks/2.%20Sliding_Window/Practice/3.%20fixed-size-string/567-permutation-in-string.py) |
+| 862 | Shortest Subarray with Sum at Least K | Advanced | [→](./1.%20LeetCode_Frameworks/2.%20Sliding_Window/Practice/4.%20advanced/862-shortest-subarray-with-sum-at-least-k.py) |
 
 ---
 
